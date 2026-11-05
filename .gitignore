@@ -1,6 +1,7 @@
 # зависимости и сборка
 node_modules/
 dist/
+.vite/
 .vercel/
 
 # секреты (токены ботов и т.п.)
@@ -11,6 +12,7 @@ dist/
 /general_goals.md
 /index.html
 /img/
+/_v0/
 
 # системное
 .DS_Store
