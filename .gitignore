@@ -1,0 +1,17 @@
+# зависимости и сборка
+node_modules/
+dist/
+.vercel/
+
+# секреты (токены ботов и т.п.)
+.env
+.env.*
+
+# личное и исходники макетов — не публикуем
+/general_goals.md
+/index.html
+/img/
+
+# системное
+.DS_Store
+*.log

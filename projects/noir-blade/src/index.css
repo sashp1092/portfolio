@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+
+  --color-ink: #0a0a0a;
+  --color-surface: #141414;
+  --color-line: #262626;
+  --color-bone: #f2f0eb;
+  --color-mute: #8f8b84;
+  --color-gold: #c8a46a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-ink font-sans leading-relaxed text-bone antialiased;
+}
+
+::selection {
+  @apply bg-gold text-ink;
+}
+
+/* Общие стили кнопок: используются в нескольких компонентах, поэтому вынесены сюда */
+@layer components {
+  .btn {
+    @apply inline-flex min-h-11 cursor-pointer items-center justify-center gap-2.5 border border-gold bg-gold px-6 py-3 text-[13px] font-semibold uppercase tracking-[0.12em] text-ink transition hover:bg-transparent hover:text-gold;
+  }
+  .btn-ghost {
+    @apply border-line bg-transparent text-bone hover:border-bone hover:text-bone;
+  }
+  .eyebrow {
+    @apply text-xs uppercase tracking-[0.3em] text-gold;
+  }
+  .field {
+    @apply w-full border border-line bg-ink px-4 py-3.5 text-[15px] normal-case tracking-normal text-bone outline-none [color-scheme:dark] focus:border-gold;
+  }
+}
