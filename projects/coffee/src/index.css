@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-heading: "Montserrat", "Inter", sans-serif;
+
+  --color-cream: #f7f1e8;
+  --color-ink: #2b1d14;
+  --color-mute: #7a6a5e;
+  --color-line: #e8ded0;
+  --color-leaf: #2f5d46;
+  --color-leaf-dark: #24493a;
+
+  --animate-fade-up: fade-up 0.6s ease-out both;
+  --animate-fade-zoom: fade-zoom 0.5s ease-out both;
+  --animate-slide-in: slide-in 0.3s ease-out both;
+  --animate-pop: pop 0.35s ease-out;
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(16px); }
+  }
+  @keyframes fade-zoom {
+    from { opacity: 0; transform: scale(0.95); }
+  }
+  @keyframes slide-in {
+    from { transform: translateX(100%); }
+  }
+  @keyframes pop {
+    50% { transform: scale(1.35); }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+body {
+  @apply bg-cream font-sans text-ink antialiased;
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-leaf px-6 py-3 font-semibold text-white shadow-[0_10px_24px_-10px_rgba(47,93,70,0.7)] transition hover:-translate-y-0.5 hover:bg-leaf-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-leaf active:translate-y-0 disabled:pointer-events-none disabled:opacity-50;
+  }
+  .btn-secondary {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-ink/15 bg-white px-6 py-3 font-semibold text-ink transition hover:-translate-y-0.5 hover:border-ink/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-leaf active:translate-y-0;
+  }
+}
+
+/* Горизонтальный скролл вкладок без видимой полосы прокрутки */
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
